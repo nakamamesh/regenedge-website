@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReGenEdge Optimize — Save 70% on Your AI Bill</title>
+<meta name="description" content="We built ReGenEdgeAI—our proprietary AI model—to slash your token spend. No gimmicks. No hype. Just measurable savings: thousands of dollars a month, or more.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --primary: #1a1a2e;
+  --accent: #f27d26;
+  --accent2: #c9a84c;
+  --white: #ffffff;
+  --fd: 'Cormorant Garamond', serif;
+  --fb: 'DM Sans', sans-serif;
+  --max: 1280px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--primary);overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+
+/* NAV */
+#nav{position:fixed;top:0;width:100%;z-index:100;transition:all .3s;padding:24px 0;}
+#nav.scrolled{background:rgba(247,245,240,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(26,26,46,0.08);padding:14px 0;box-shadow:0 2px 20px rgba(26,26,46,0.06);}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-style:italic;font-size:1.35rem;font-weight:700;}
+.nav-logo-icon{width:34px;height:34px;background:var(--primary);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;opacity:.6;transition:opacity .2s;}
+.nav-links a:hover{opacity:1}
+.nav-cta{padding:10px 22px;background:var(--primary);color:#fff;border-radius:100px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;transition:all .25s;opacity:1!important;}
+.nav-cta:hover{background:var(--accent);transform:translateY(-1px)}
+.nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;font-size:1.3rem;color:var(--primary)}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;align-items:flex-start;position:fixed;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid rgba(26,26,46,0.1);padding:20px 32px 28px;gap:16px;}
+  .nav-mobile-btn{display:block}
+}
+
+/* HERO */
+#hero{padding:140px 32px 100px;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+@media(max-width:900px){#hero{grid-template-columns:1fr;gap:48px;padding-top:120px}}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:100px;background:rgba(242,125,38,0.1);color:var(--accent);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:24px;border:1px solid rgba(242,125,38,0.2);}
+.hero-h1{font-family:var(--fd);font-style:italic;font-size:clamp(3.2rem,6vw,6rem);line-height:.92;margin-bottom:24px;}
+.hero-h1 em{color:var(--accent);font-style:italic}
+.hero-p{font-size:1.1rem;color:rgba(26,26,46,0.65);line-height:1.75;max-width:480px;margin-bottom:36px;}
+.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:100px;font-size:.9rem;font-weight:700;transition:all .25s;cursor:pointer;border:none;font-family:var(--fb);}
+.btn-primary:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(242,125,38,0.35)}
+.btn-primary .arrow{transition:transform .2s}
+.btn-primary:hover .arrow{transform:translateX(4px)}
+.hero-social-proof{display:flex;align-items:center;gap:12px;padding:10px 18px;border-radius:100px;border:1px solid rgba(26,26,46,0.08);}
+.hero-avatars{display:flex}
+.hero-avatars span{width:32px;height:32px;border-radius:50%;border:2px solid var(--bg);background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;margin-left:-8px;}
+.hero-avatars span:first-child{margin-left:0}
+.hero-proof-text{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.5}
+
+/* Hero card */
+.hero-card{background:#fff;border-radius:24px;padding:36px;box-shadow:0 24px 80px rgba(26,26,46,0.12);border:1px solid rgba(26,26,46,0.05);position:relative;overflow:hidden;animation:floatCard 6s ease-in-out infinite;}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent);}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px}
+.card-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;opacity:.35;font-weight:700;margin-bottom:4px}
+.card-title{font-family:var(--fd);font-style:italic;font-size:1.4rem;font-weight:700}
+.card-score{font-family:var(--fd);font-style:italic;font-size:2.8rem;color:#22c55e;line-height:1}
+.card-score span{font-size:1.2rem;opacity:.3}
+.vectors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:24px}
+.vector-cell{border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;}
+.vector-cell.green{background:#f0fdf4;}
+.vector-cell.orange{background:#fff7ed;}
+.vector-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.45;}
+.vector-val{font-size:.95rem;font-weight:700;color:var(--primary)}
+.vector-cell.green .vector-val{color:#16a34a}
+.vector-cell.orange .vector-val{color:#f97316}
+.action-row{background:var(--bg);border-radius:12px;padding:14px 16px;margin-bottom:10px;border:1px solid rgba(26,26,46,0.05);}
+.action-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.35;margin-bottom:4px}
+.action-text{font-size:.9rem;font-weight:600}
+.action-time{font-size:.65rem;opacity:.45;font-family:monospace;float:right;margin-top:-16px}
+.roi-badge{position:absolute;bottom:-20px;left:-20px;background:var(--accent);color:#fff;padding:20px 24px;border-radius:18px;box-shadow:0 12px 36px rgba(242,125,38,0.4);animation:floatBadge 5s ease-in-out infinite;z-index:2;}
+@keyframes floatBadge{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+.roi-badge-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.75;margin-bottom:4px}
+.roi-badge-val{font-family:var(--fd);font-style:italic;font-size:2rem;line-height:1;font-weight:700}
+.roi-badge-sub{font-size:.62rem;opacity:.65;margin-top:4px}
+
+/* SECTIONS */
+.section{padding:100px 32px}
+.section-inner{max-width:var(--max);margin:0 auto}
+.section-eyebrow{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;opacity:.45;margin-bottom:12px;}
+.section-h2{font-family:var(--fd);font-style:italic;font-size:clamp(2.8rem,5vw,5rem);line-height:.95;margin-bottom:20px;}
+.section-h2 em{color:var(--accent);font-style:italic}
+.section-sub{font-size:1.05rem;opacity:.55;max-width:560px;line-height:1.7}
+
+/* HOW IT WORKS dark */
+#how{background:var(--primary);color:#fff}
+#how .section-h2{color:#fff}
+#how .section-sub{color:rgba(255,255,255,0.55)}
+.vectors-full-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(255,255,255,0.08);margin-top:56px;}
+@media(max-width:900px){.vectors-full-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.vectors-full-grid{grid-template-columns:1fr}}
+.vector-full-cell{padding:32px 28px;border-right:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);transition:background .2s;}
+.vector-full-cell:hover{background:rgba(255,255,255,0.04)}
+.vector-full-cell:nth-child(3n){border-right:none}
+.vfc-icon{font-size:1.6rem;margin-bottom:20px;display:block}
+.vfc-name{font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.3}
+.vfc-desc{font-size:.8rem;opacity:.45;line-height:1.65}
+
+/* ROI */
+#roi .roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px;}
+@media(max-width:900px){#roi .roi-grid{grid-template-columns:1fr;gap:48px}}
+.roi-feature{display:flex;gap:20px;align-items:flex-start;margin-bottom:36px}
+.roi-feature-icon{width:48px;height:48px;border-radius:50%;background:rgba(242,125,38,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.roi-feature-title{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.roi-feature-desc{font-size:.875rem;opacity:.55;line-height:1.65}
+.roi-calculator{background:#fff;padding:40px;border-radius:24px;box-shadow:0 16px 64px rgba(26,26,46,0.08);border:1px solid rgba(26,26,46,0.05);}
+.roi-calc-header{text-align:center;margin-bottom:36px}
+.roi-calc-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;opacity:.35;margin-bottom:10px}
+.roi-calc-divider{height:2px;width:48px;background:var(--accent);margin:0 auto}
+.proj-row{margin-bottom:28px}
+.proj-row-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
+.proj-val{color:var(--accent)}
+.proj-bar-bg{height:8px;background:var(--bg);border-radius:4px;overflow:hidden}
+.proj-bar-fill{height:100%;border-radius:4px;transition:width 1.2s cubic-bezier(.4,0,.2,1);width:0}
+.fill-primary{background:var(--primary)}
+.fill-accent{background:var(--accent)}
+.fill-green{background:#22c55e}
+.proj-summary{padding-top:24px;border-top:1px solid var(--bg);display:flex;justify-content:space-between;align-items:flex-end;}
+.proj-net-label{font-size:.65rem;font-weight:700;text-transform:uppercase;opacity:.35;margin-bottom:4px}
+.proj-net-val{font-family:var(--fd);font-style:italic;font-size:2.8rem;line-height:1}
+.proj-roi-badge{background:#dcfce7;color:#16a34a;padding:6px 14px;border-radius:100px;font-size:.75rem;font-weight:700;}
+
+/* TIMELINE */
+#timeline{background:#fff}
+.timeline-wrap{position:relative;margin-top:64px}
+.timeline-line{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(26,26,46,0.08);transform:translateX(-50%);}
+@media(max-width:768px){.timeline-line{display:none}}
+.tl-items{display:flex;flex-direction:column;gap:48px}
+.tl-item{display:grid;grid-template-columns:1fr 24px 1fr;gap:32px;align-items:center;}
+@media(max-width:768px){.tl-item{grid-template-columns:24px 1fr;gap:20px}}
+.tl-content{padding:28px 32px;background:var(--bg);border-radius:16px;border:1px solid rgba(26,26,46,0.06)}
+.tl-content.right{background:#fff;border:1px solid rgba(26,26,46,0.06);box-shadow:0 4px 20px rgba(26,26,46,0.06)}
+.tl-month-badge{display:inline-block;padding:4px 14px;background:var(--primary);color:#fff;border-radius:100px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;}
+.tl-title{font-size:1rem;font-weight:700;margin-bottom:6px}
+.tl-desc{font-size:.85rem;opacity:.55;line-height:1.65}
+.tl-dot{width:20px;height:20px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(242,125,38,0.15);justify-self:center;z-index:2;flex-shrink:0;}
+.tl-spacer{}
+@media(max-width:768px){.tl-spacer{display:none}.tl-item{grid-template-columns:20px 1fr}}
+
+/* PRICING */
+#pricing .comp-table-wrap{margin-top:56px;overflow-x:auto;}
+.comp-table{width:100%;border-collapse:collapse}
+.comp-table thead tr{border-bottom:1px solid rgba(26,26,46,0.1)}
+.comp-table th{padding:20px 16px;text-align:left;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;opacity:.35;}
+.comp-table th:last-child{text-align:right}
+.comp-table td{padding:22px 16px;border-bottom:1px solid rgba(26,26,46,0.05);font-size:.9rem;}
+.comp-table tr:hover td{background:rgba(26,26,46,0.02)}
+.comp-name{font-weight:700}
+.comp-avg{opacity:.5}
+.comp-ours{font-family:var(--fd);font-style:italic;font-size:1.3rem;font-weight:700}
+.comp-save{text-align:right}
+.save-badge{display:inline-block;padding:4px 12px;background:#dcfce7;color:#16a34a;border-radius:100px;font-size:.68rem;font-weight:700;text-transform:uppercase;}
+.pricing-cta{margin-top:56px;padding:48px 56px;background:var(--primary);color:#fff;border-radius:24px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;}
+.pricing-cta-title{font-family:var(--fd);font-style:italic;font-size:2rem;margin-bottom:6px}
+.pricing-cta-sub{opacity:.55;font-size:.9rem}
+.btn-accent{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--accent);color:#fff;border-radius:100px;font-size:.9rem;font-weight:700;transition:all .25s;cursor:pointer;border:none;font-family:var(--fb);white-space:nowrap;}
+.btn-accent:hover{transform:scale(1.04);box-shadow:0 8px 24px rgba(242,125,38,0.4)}
+
+/* CONTACT */
+#contact{background:#fff}
+#contact .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:56px;}
+@media(max-width:900px){#contact .contact-grid{grid-template-columns:1fr;gap:48px}}
+.contact-info-row{display:flex;align-items:center;gap:16px;margin-bottom:24px;}
+.contact-icon{width:48px;height:48px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.contact-detail-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.35;margin-bottom:3px}
+.contact-detail-val{font-weight:700;font-size:.95rem}
+.contact-detail-val a{transition:color .2s}
+.contact-detail-val a:hover{color:var(--accent)}
+.form-field{margin-bottom:20px}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.form-row-2{grid-template-columns:1fr}}
+.form-label{display:block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.35;margin-bottom:8px;}
+.form-input,.form-textarea{width:100%;padding:16px 20px;background:var(--bg);border:1px solid rgba(26,26,46,0.08);border-radius:14px;font-family:var(--fb);font-size:.9rem;color:var(--primary);outline:none;transition:border-color .2s,box-shadow .2s;}
+.form-input:focus,.form-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(242,125,38,0.1);}
+.form-textarea{resize:none}
+.form-submit{width:100%;padding:18px;background:var(--primary);color:#fff;border:none;border-radius:14px;font-family:var(--fb);font-size:1rem;font-weight:700;cursor:pointer;transition:all .25s;}
+.form-submit:hover{background:var(--accent);transform:translateY(-1px)}
+.form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.form-success{display:none;padding:20px;border-radius:14px;background:#dcfce7;border:1px solid #86efac;color:#15803d;font-weight:600;text-align:center;}
+.form-success.show{display:block}
+.form-error{display:none;padding:16px;border-radius:10px;background:#fee2e2;border:1px solid #fca5a5;color:#dc2626;font-size:.875rem;margin-top:12px;}
+.form-error.show{display:block}
+
+/* FOOTER */
+footer{padding:48px 32px;border-top:1px solid rgba(26,26,46,0.07);background:var(--bg);}
+.footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
+.footer-copyright{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.3}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.3;transition:opacity .2s}
+.footer-links a:hover{opacity:.7}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">📈</div>
+      ReGenEdge <span>Optimize</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#roi">ROI</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact" class="nav-cta">Free Audit</a>
+    </div>
+    <button class="nav-mobile-btn" onclick="toggleNav()" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="padding-top:0">
+  <div id="hero">
+    <div>
+      <div class="hero-eyebrow">📊 Proprietary ReGenEdgeAI™ Intelligence</div>
+      <h1 class="hero-h1">Save 70%. Or Save <em>Thousands.</em></h1>
+      <p class="hero-p">We built ReGenEdgeAI — our proprietary AI model — to slash your token spend. No gimmicks. No hype. Just measurable savings: thousands of dollars a month, or more.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Audit Your AI Spend <span class="arrow">→</span></a>
+        <div class="hero-social-proof">
+          <div class="hero-avatars">
+            <span>TC</span><span>MR</span><span>AL</span>
+          </div>
+          <span class="hero-proof-text">Trusted by 50+ B2B Teams</span>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative">
+      <div class="hero-card">
+        <div class="card-top">
+          <div>
+            <div class="card-label">Audit Report</div>
+            <div class="card-title">ReGenEdgeAI Savings Pro™</div>
+          </div>
+          <div style="text-align:right">
+            <div class="card-label">Overall Savings</div>
+            <div class="card-score">70<span>%</span></div>
+          </div>
+        </div>
+        <div class="vectors-grid">
+          <div class="vector-cell green">
+            <div class="vector-label">Token Reduction</div>
+            <div class="vector-val">60–99%</div>
+          </div>
+          <div class="vector-cell orange">
+            <div class="vector-label">ReGenEdgeAI</div>
+            <div class="vector-val">Proprietary</div>
+          </div>
+          <div class="vector-cell green">
+            <div class="vector-label">Combined Effect</div>
+            <div class="vector-val">60–99%</div>
+          </div>
+          <div class="vector-cell orange">
+            <div class="vector-label">Methodology</div>
+            <div class="vector-val">Ours Alone</div>
+          </div>
+        </div>
+        <div class="action-row">
+          <div class="action-time">Week 1</div>
+          <div class="action-label">Step 01</div>
+          <div class="action-text">Free AI Cost Audit Delivered</div>
+        </div>
+        <div class="action-row">
+          <div class="action-time">Week 2</div>
+          <div class="action-label">Step 02</div>
+          <div class="action-text">ReGenEdgeAI Integration Live</div>
+        </div>
+      </div>
+      <div class="roi-badge">
+        <div class="roi-badge-label">Savings Potential</div>
+        <div class="roi-badge-val">$1,000s</div>
+        <div class="roi-badge-sub">Per Month, Guaranteed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="section-inner">
+    <p class="section-eyebrow" style="color:rgba(255,255,255,0.4)">The Breakthrough</p>
+    <h2 class="section-h2">ReGenEdgeAI. Proprietary. <em>Proven.</em></h2>
+    <p class="section-sub">We developed and trained our own proprietary AI model to optimize every query. The result: 60–99% token reduction. The methodology: ours.</p>
+    <div class="vectors-full-grid">
+      <div class="vector-full-cell reveal">
+        <span class="vfc-icon">🤖</span>
+        <div class="vfc-name">Proprietary AI Model</div>
+        <div class="vfc-desc">We have developed and trained our own proprietary AI model — ReGenEdgeAI — to optimize every query. Built from years of research. A genuine breakthrough.</div>
+      </div>
+      <div class="vector-full-cell reveal reveal-delay-1">
+        <span class="vfc-icon">📊</span>
+        <div class="vfc-name">60–99% Token Reduction</div>
+        <div class="vfc-desc">ReGenEdgeAI proprietary software delivers 60–99% reduction in token usage. The results speak for themselves. The methodology stays with us.</div>
+      </div>
+      <div class="vector-full-cell reveal reveal-delay-2">
+        <span class="vfc-icon">💰</span>
+        <div class="vfc-name">Thousands Saved Monthly</div>
+        <div class="vfc-desc">Our clients routinely save thousands of dollars per month — often far more. The audit shows you the numbers before you commit.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="section" id="roi">
+  <div class="section-inner">
+    <p class="section-eyebrow">Revenue Intelligence</p>
+    <h2 class="section-h2">The Math That Closes <em>Deals.</em></h2>
+    <div class="roi-grid">
+      <div class="reveal">
+        <p style="font-size:1.05rem;opacity:.6;line-height:1.75;margin-bottom:40px">We don't just trim costs. We built a breakthrough. ReGenEdgeAI saves most clients thousands of dollars a month — often far more.</p>
+        <div class="roi-feature">
+          <div class="roi-feature-icon">📈</div>
+          <div>
+            <div class="roi-feature-title">Typical Overspend</div>
+            <div class="roi-feature-desc">Most enterprises hemorrhage thousands monthly on unnecessary token consumption.</div>
+          </div>
+        </div>
+        <div class="roi-feature">
+          <div class="roi-feature-icon">⏱️</div>
+          <div>
+            <div class="roi-feature-title">Immediate ROI</div>
+            <div class="roi-feature-desc">ReGenEdgeAI typically pays for itself within the first month. Many clients see six figures in annual savings.</div>
+          </div>
+        </div>
+        <div class="roi-feature">
+          <div class="roi-feature-icon">🎯</div>
+          <div>
+            <div class="roi-feature-title">Enterprise-Ready</div>
+            <div class="roi-feature-desc">Our audit is built from your actual spend. No generic projections. We model your real numbers.</div>
+          </div>
+        </div>
+      </div>
+      <div class="roi-calculator reveal reveal-delay-2">
+        <div class="roi-calc-header">
+          <div class="roi-calc-label">12-Month Savings Projection</div>
+          <div class="roi-calc-divider"></div>
+        </div>
+        <div class="proj-row">
+          <div class="proj-row-top"><span>Current AI Spend</span><span>$120,000/yr</span></div>
+          <div class="proj-bar-bg"><div class="proj-bar-fill fill-primary" data-w="100"></div></div>
+        </div>
+        <div class="proj-row">
+          <div class="proj-row-top"><span>ReGenEdgeAI Cost</span><span class="proj-val">$36,000/yr</span></div>
+          <div class="proj-bar-bg"><div class="proj-bar-fill fill-accent" data-w="30"></div></div>
+        </div>
+        <div class="proj-row">
+          <div class="proj-row-top"><span>Net Savings</span><span class="proj-val">$84,000/yr</span></div>
+          <div class="proj-bar-bg"><div class="proj-bar-fill fill-green" data-w="70"></div></div>
+        </div>
+        <div class="proj-summary">
+          <div>
+            <div class="proj-net-label">Guaranteed Savings</div>
+            <div class="proj-net-val">70%</div>
+          </div>
+          <div class="proj-roi-badge">💰 Or We Don't Charge</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" id="timeline">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:64px">
+      <p class="section-eyebrow">What to Expect</p>
+      <h2 class="section-h2">Results <em>Timeline.</em></h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Month-by-month milestones on the path to savings.</p>
+    </div>
+    <div class="timeline-wrap">
+      <div class="timeline-line"></div>
+      <div class="tl-items">
+        <div class="tl-item reveal">
+          <div class="tl-content">
+            <span class="tl-month-badge">Week 1</span>
+            <div class="tl-title">Audit Delivered</div>
+            <div class="tl-desc">Your custom AI cost report lands in your inbox. We show your projected savings — in real dollars.</div>
+          </div>
+          <div class="tl-dot"></div>
+          <div class="tl-spacer"></div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-spacer"></div>
+          <div class="tl-dot"></div>
+          <div class="tl-content right">
+            <span class="tl-month-badge">Week 2</span>
+            <div class="tl-title">Integration</div>
+            <div class="tl-desc">ReGenEdgeAI is deployed across your pipeline. Your first optimized requests are live.</div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-content">
+            <span class="tl-month-badge">Month 1</span>
+            <div class="tl-title">Savings Live</div>
+            <div class="tl-desc">Full optimization active. Dashboard shows real-time cost reduction. The difference is immediate.</div>
+          </div>
+          <div class="tl-dot"></div>
+          <div class="tl-spacer"></div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-spacer"></div>
+          <div class="tl-dot"></div>
+          <div class="tl-content right">
+            <span class="tl-month-badge">Month 3</span>
+            <div class="tl-title">ROI Realized</div>
+            <div class="tl-desc">70% savings on AI spend. Most clients see payback within the first month.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:16px">
+      <p class="section-eyebrow">Market Comparison</p>
+      <h2 class="section-h2">What You Pay <em>Elsewhere vs. Us.</em></h2>
+    </div>
+    <div class="comp-table-wrap reveal">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Industry Average</th>
+            <th>Our Pricing</th>
+            <th>Savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="comp-name">ReGenEdgeAI Optimization</td>
+            <td class="comp-avg">$800–$2,000/mo</td>
+            <td class="comp-ours">$79/mo</td>
+            <td class="comp-save"><span class="save-badge">Up to 96%</span></td>
+          </tr>
+          <tr>
+            <td class="comp-name">Enterprise Token Reduction</td>
+            <td class="comp-avg">$500–$1,500/mo</td>
+            <td class="comp-ours">Included</td>
+            <td class="comp-save"><span class="save-badge">100%</span></td>
+          </tr>
+          <tr>
+            <td class="comp-name">Full Optimization Bundle</td>
+            <td class="comp-avg">$3,000–$8,000/mo</td>
+            <td class="comp-ours">$499/mo</td>
+            <td class="comp-save"><span class="save-badge">Up to 94%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pricing-cta reveal">
+      <div>
+        <div class="pricing-cta-title">Ready to save thousands?</div>
+        <div class="pricing-cta-sub">Get a full ReGenEdgeAI Savings Pro™ audit and action plan today.</div>
+      </div>
+      <a href="#contact" class="btn-accent">Book Your Strategy Session →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <p class="section-eyebrow">Get In Touch</p>
+    <h2 class="section-h2">Let's Talk <em>Growth.</em></h2>
+    <div class="contact-grid">
+      <div class="reveal">
+        <p style="font-size:1.05rem;opacity:.6;line-height:1.75;margin-bottom:40px">Have questions about our methodology or want to see a live demo? Reach out — we respond within one business day.</p>
+        <div class="contact-info-row">
+          <div class="contact-icon">👤</div>
+          <div>
+            <div class="contact-detail-label">Founder</div>
+            <div class="contact-detail-val">Jay</div>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-val"><a href="mailto:hello@regenedge.ai">hello@regenedge.ai</a></div>
+          </div>
+        </div>
+        <div style="margin-top:32px;padding:24px;background:var(--bg);border-radius:16px;border-left:4px solid var(--accent)">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:8px">Also Try Our Free Audit Tool</div>
+          <div style="font-size:.9rem;opacity:.65;line-height:1.6">Run a live AI cost audit in 60 seconds. Includes projected savings and a downloadable PDF report.</div>
+          <a href="#contact" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:.85rem;font-weight:700;color:var(--accent)">Launch ReGenEdgeAI Audit →</a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <form id="contact-form" action="https://formspree.io/f/mnjgkael" method="POST">
+          <div class="form-row-2">
+            <div class="form-field">
+              <label class="form-label" for="name">Full Name</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="company">Company</label>
+              <input type="text" id="company" name="company" class="form-input" placeholder="Acme Corp">
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="john@company.com" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="message">Message</label>
+            <textarea id="message" name="message" class="form-input form-textarea" rows="4" placeholder="Tell us about your AI spend and use case..."></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="New ReGenEdgeAI audit request">
+          <button type="submit" class="form-submit" id="submit-btn">Get My Audit →</button>
+          <div class="form-success" id="form-success">✅ Request received! We'll be in touch within one business day.</div>
+          <div class="form-error" id="form-error">Something went wrong. Please email us directly at hello@regenedge.ai</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-icon" style="width:26px;height:26px;font-size:.75rem">📈</div>
+      ReGenEdge <span>Optimize</span>
+    </div>
+    <div class="footer-copyright">© 2026 ReGenEdge Ventures LLC. ReGenEdgeAI is a ReGenEdge Ventures product.</div>
+    <div class="footer-links">
+      <a href="mailto:hello@regenedge.ai">Privacy</a>
+      <a href="mailto:hello@regenedge.ai">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('nav');
+  if (window.scrollY > 50) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+function toggleNav() {
+  document.getElementById('nav-links').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('nav-links').classList.remove('open');
+  });
+});
+
+var revealEls = document.querySelectorAll('.reveal');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(function(el) { observer.observe(el); });
+
+var barObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.proj-bar-fill').forEach(function(bar) {
+        var w = bar.getAttribute('data-w');
+        setTimeout(function() { bar.style.width = w + '%'; }, 200);
+      });
+      barObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+var roiCalc = document.querySelector('.roi-calculator');
+if (roiCalc) barObserver.observe(roiCalc);
+
+var form = document.getElementById('contact-form');
+var submitBtn = document.getElementById('submit-btn');
+var successEl = document.getElementById('form-success');
+var errorEl = document.getElementById('form-error');
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    successEl.classList.remove('show');
+    errorEl.classList.remove('show');
+    try {
+      var data = new FormData(form);
+      var resp = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+      if (resp.ok) {
+        form.reset();
+        successEl.classList.add('show');
+        submitBtn.textContent = '✓ Sent!';
+      } else { throw new Error('error'); }
+    } catch(err) {
+      errorEl.classList.add('show');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Get My Audit →';
+    }
+  });
+}
+</script>
+</body>
+</html>
